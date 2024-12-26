@@ -1,0 +1,19 @@
+name: email-complaint-checker
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - langchain
+  - msal
+  - openai
+  - requests
+  - python-dotenv
+  - python=3.9
+  - pytz
+  - notebook
+  - beautifulsoup4
+  - pip
+  - lxml
+  - langchain-openai
+  - html2text
+prefix: /Users/andrewhinton/opt/anaconda3/envs/email-complaint-checker
