@@ -22,7 +22,7 @@ class SentimentAnalyzer:
         extract_prompt = PromptTemplate(
             input_variables=["subject", "body",'keywords'],
             template="""
-            You are an assistant that reviews information in emails to detect complaints.
+            You have expert skills in logic and are an email content analyst that reviews information in emails to detect complaints.
             Analyze the subject and body of the email to determine the topic, customer sentiment, and urgency level. 
             When determining sentiment consider these keywords to be associated with a complaint: {keywords}
             Based on this review classify if the message is a complaint and report as Decision.
@@ -55,20 +55,25 @@ class SentimentAnalyzer:
         extract_prompt = PromptTemplate(
             input_variables=["subject", "body","keywords"],
             template="""
-            You are an intelligent assistant that extracts key information from emails.
-            Extract the main topic, customer sentiment, urgency level, and summarize email with at most 25 words.
-            When determining sentiment consider these keywords to be associated with a complaint: {keywords}
-            The information will be used by a judge to determine if an email is a complaint or not.
-
-            Email:
-            Subject: {subject}
-            Body: {body}
-
-            Output:
-            - Topic: ...
-            - Sentiment: ...
-            - Urgency: ...
-            - Summary: ...
+                You are a detailed-oriented assistant tasked with extracting key information from emails.
+                Identify the following details:
+                    - Main topic
+                    - Customer sentiment
+                    - Urgency level
+                    - A summary of the email in no more than 25 words
+                
+                When determining sentiment, consider the following keywords as indicative of a complaint: {keywords}.
+                The extracted information will assist an analyst and a judge in deciding whether the email constitutes a complaint.
+                
+                Email:
+                Subject: {subject}
+                Body: {body}
+                
+                Output:
+                    - Topic: …
+                    - Sentiment: …
+                    - Urgency: …
+                    - Summary: …
             """
         )
 
